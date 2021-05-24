@@ -43,7 +43,7 @@ const StyledSection = styled.section`
     padding-top: 37px;
     background: #615f5f;
     margin: 50px;
-    width: 1200px;
+    // width: 1200px;
 `
 
 const StyledContainer = styled.div`

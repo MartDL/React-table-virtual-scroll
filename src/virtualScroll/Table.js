@@ -9,7 +9,7 @@ const SETTINGS = {
   amount: 12,
   tolerance: 5,
   minIndex: 0,
-  maxIndex: json.length,
+  maxIndex: 1000,
   startIndex: 1
 };
 
