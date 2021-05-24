@@ -1,13 +1,12 @@
 import React from "react";
 import Scroller from "./Scroller";
-import "./style.css";
-import json from '../data/photos.json'
+import json from '../data/people.json'
 console.log('json:', json)
 
-// define the views for the table
+// define the views for the table. Leave as this for default.
 const SETTINGS = {
-  itemHeight: 25,
-  amount: 15,
+  itemHeight: 37,
+  amount: 12,
   tolerance: 5,
   minIndex: 0,
   maxIndex: json.length,
@@ -19,7 +18,7 @@ const getData = (offset, limit) => {
   const data = [];
   const start = Math.max(SETTINGS.minIndex, offset);
   const end = Math.min(offset + limit - 1, SETTINGS.maxIndex);
-  console.log('start:', start)
+  //console.log('start:', start)
   if (start <= end) {
     for (let i = start; i <= end; i++) {
       data.push(json[i]);
@@ -33,12 +32,11 @@ const columnTitles = Object.keys(json[0])
 
 // define table rows passed to Scroller as row prop
 const tableRows = item => (
-  <tr className="item" key={item.id}>
-    <td>{item.albumId}</td>
-    <td>{item.id}</td>
-    <td>{item.title}</td>
-    <td>{item.thumbnailUrl}</td>
-    <td>{item.url}</td>
+  <tr className="item" key={item.uuid}>
+    <td>{item.uuid}</td>
+    <td>{item.first_name}</td>
+    <td>{item.last_name}</td>
+    <td>{item.birthday}</td>
   </tr>
 );
 

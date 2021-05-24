@@ -28,17 +28,17 @@ const Scroller = ({tableRows, columnTitles, get, settings}) => {
 
   return (
     <>
-      <StyledTitlesContainer>
-        {columnTitles.map(item => (
-        <div key={item}>{item}</div>
-        ))}
-      </StyledTitlesContainer>
       <StyledTable
         ref={viewportElement}
         onScroll={runScroller}
         style={{ height: viewportHeight }}>
         <div style={{ height: topPaddingHeight }} />
           <table>
+            <thead>
+              <tr>
+              {columnTitles.map(item => <th key={item}>{item}</th>)}
+              </tr>
+            </thead>
             <tbody>
               {data.map(tableRows)}
             </tbody>
@@ -51,21 +51,21 @@ const Scroller = ({tableRows, columnTitles, get, settings}) => {
 
 export default Scroller;
 
-const StyledTitlesContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 1200px;
-  height: 20px;
-  background-color: #C8C8C8;
-`
-
 const StyledTable = styled.div`
   width: 1200px;
   overflow-y: auto;
   border: 1px solid black;
-
+  table {
+    width: 100%;
+  }
+  table, th, td {
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    padding: 5px 0px;
+  }
+  thead {
+    background-color: #C8C8C8;
+  }
 `
 
 
