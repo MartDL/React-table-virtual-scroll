@@ -82,6 +82,6 @@ const StyledHeaderRow = styled.tr`
     top: 0;
     margin-left: -25px;
     line-height: normal;
-    // border-left: 1px solid white;
+    border-left: 1px solid white;
     }
 `
